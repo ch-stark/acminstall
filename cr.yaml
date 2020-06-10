@@ -4,4 +4,4 @@ metadata:
   name: multiclusterhub
   namespace: acm
 spec:
-  imagePullSecret: YOUR REGISTRY SECRET NAME
+  imagePullSecret: acmsecret
