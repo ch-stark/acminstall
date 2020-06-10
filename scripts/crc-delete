@@ -7,3 +7,8 @@ echo "======================================================"
 echo "Deleting crc ${CRC_VERSION}"
 echo "======================================================"
 crc delete --force
+
+rm ~/crc
+
+sudo virsh undefine crc
+sudo virsh destroy  crc
