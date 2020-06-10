@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+source crc.env
+
+echo "======================================================"
+echo "Stopping crc ${CRC_VERSION}"
+echo "======================================================"
+crc stop --force

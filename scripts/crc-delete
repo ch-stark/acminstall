@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+source crc.env
+
+echo "======================================================"
+echo "Deleting crc ${CRC_VERSION}"
+echo "======================================================"
+crc delete --force

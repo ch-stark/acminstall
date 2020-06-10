@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -e
+
+source crc.env
+
+echo "======================================================"
+echo "Setup crc ${CRC_VERSION} environment"
+echo "======================================================"
+
+crc setup
+
+crc config set cpus ${CPUS}
+crc config set memory ${MEMORY}
+crc config set pull-secret-file pull-secret
+
+echo "======================================================"
+echo "Repair /etc/resolv.conf"
+echo "======================================================"
+sudo chmod o+w /etc/resolv.conf
+sudo cat resolv.conf > /etc/resolv.conf
+sudo chmod o-w /etc/resolv.conf
+
+echo "======================================================"
+echo "Repair /etc/hosts"
+echo "======================================================"
+sudo chmod o+w /etc/hosts
+sudo cat hosts > /etc/hosts
+sudo chmod o-w /etc/hosts
+
+
+echo "======================================================"
+echo "Starting crc ${CRC_VERSION}"
+echo "======================================================"
+crc start
+
+
+echo "======================================================"
+echo "Login as kubedamin"
+echo "======================================================"
+
+eval $(crc oc-env)
+oc login -u kubeadmin -p $(crc console --credentials | awk -F "kubeadmin" '{print $2}' | cut -c 5- | rev | cut -c31- | rev) https://api.crc.testing:6443
+
+

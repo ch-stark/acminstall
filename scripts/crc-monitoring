@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+eval $(crc oc-env)
+oc login -u kubeadmin -p $(crc console --credentials | awk -F "kubeadmin" '{print $2}' | cut -c 5- | rev | cut -c31- | rev) https://api.crc.testing:6443
+
+oc patch clusterversion/version --type='json' -p '[{"op":"remove", "path":"/spec/overrides/0"}]' -oyaml
+
