@@ -1,46 +1,7 @@
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  annotations:
-    olm.providedAPIs: Application.v1beta1.app.k8s.io,Channel.v1.apps.open-cluster-management.io,Deployable.v1.apps.open-cluster-management.io,EtcdBackup.v1beta2.etcd.database.coreos.com,EtcdCluster.v1beta2.etcd.database.coreos.com,EtcdRestore.v1beta2.etcd.database.coreos.com,HelmRelease.v1.apps.open-cluster-management.io,HiveConfig.v1.hive.openshift.io,MultiClusterHub.v1beta1.operators.open-cluster-management.io,PlacementRule.v1.apps.open-cluster-management.io,Subscription.v1.apps.open-cluster-management.io
-  creationTimestamp: "2020-06-23T09:08:00Z"
-  generateName: open-cluster-management-
-  generation: 1
-  managedFields:
-  - apiVersion: operators.coreos.com/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:generateName: {}
-      f:spec:
-        .: {}
-        f:targetNamespaces:
-          .: {}
-          v:"open-cluster-management": {}
-    manager: Mozilla
-    operation: Update
-    time: "2020-06-23T09:08:00Z"
-  - apiVersion: operators.coreos.com/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          .: {}
-          f:olm.providedAPIs: {}
-      f:status:
-        .: {}
-        f:lastUpdated: {}
-        f:namespaces:
-          .: {}
-          v:"open-cluster-management": {}
-    manager: olm
-    operation: Update
-    time: "2020-06-23T09:08:02Z"
-  name: open-cluster-management-x9mjd
-  namespace: open-cluster-management
-  resourceVersion: "40907"
-  selfLink: /apis/operators.coreos.com/v1/namespaces/open-cluster-management/operatorgroups/open-cluster-management-x9mjd
-  uid: 93f2c06a-55d4-4a8f-bd58-1f6f1f27a9c0
+  name: open-cluster-management
 spec:
   targetNamespaces:
   - open-cluster-management
